@@ -1,51 +1,67 @@
 #include "vector.h"
-#include <stdlib.h>
-#include <math.h>
+#include <cmath>
 
-typedef struct Vector
+Vector :: Vector(double x, double y, double z)
 {
-    double x;
-    double y;
-    double z;
-} vector;
-
-double vector_get_size (vector* v)
-{
-    return sqrt(v -> x * v -> x + v -> y * v -> y + v -> z *v -> z);
+	this.x = x;
+	this.y = y;
+	this.z = z;
 }
 
-vector* vector_sum (vector* v1, vector* v2)
+Vector :: Vector(double x, double y)
 {
-    vector* res = (vector*)malloc(sizeof(vector));
-    res -> x = v1 -> x + v2 -> x;
-    res -> y = v1 -> y + v2 -> y;
-    res -> z = v1 -> z + v2 -> z;
-    return res;
+	this.x = x;
+	this.y = y;
+	this.z = 0;
 }
 
-vector* vector_sub (vector* v, double s)
+Vector :: Vector(double x)
 {
-    vector* res = (vector*)malloc(sizeof(vector));
-    res -> x = v -> x * s;
-    res -> y = v -> y * s;
-    res -> z = v -> z * s;
-    return res;
+	this.x = x;
+	this.y = 0;
+	this.z = 0;
 }
 
-vector* vector_mul (vector* v1, vector* v2)
+Vector :: Vector(void)
 {
-    vector* res = (vector*)malloc(sizeof(vector));
-    res -> x = v1 -> x - v2 -> x;
-    res -> y = v1 -> y - v2 -> y;
-    res -> z = v1 -> z - v2 -> z;
-    return res;
+	this.x = 0;
+	this.y = 0;
+	this.z = 0;
 }
 
-double vector_inner_product (vector* v1, vector* v2)
+double Vector::get_size (void)
+{
+	return sqrt(this -> x * this-> x + this-> y * this-> y + this-> z * this-> z);
+}
+
+Vector* Vector::sum (Vector* v1, Vector* v2)
+{
+	Vector* res = new Vector;
+	res -> x = v1 -> x + v2 -> x;
+	res -> y = v1 -> y + v2 -> y;
+	res -> z = v1 -> z + v2 -> z;
+	return res;
+}
+
+Vector* Vector::sub (Vector* v, double s)
+{
+	Vector* res = new Vector;
+	res -> x = v -> x * s;
+	res -> y = v -> y * s;
+	res -> z = v -> z * s;
+	return res;
+}
+
+Vector* Vector::mul (Vector* v1, Vector* v2)
+{
+	Vector* res = new Vector;
+	res -> x = v1 -> x - v2 -> x;
+	res -> y = v1 -> y - v2 -> y;
+	res -> z = v1 -> z - v2 -> z;
+	return res;
+}
+
+double Vector::inner_product (Vector* v1, Vector* v2)
 {
     return v1 -> x * v2 -> x + v1 -> y * v2 -> y + v1  -> z * v2 -> z;
 }
-
-vector* vector_new_vector (double x, double y, double z)
-{
-    vector* 
