@@ -2,7 +2,7 @@
 #include "vector"
 #include <cmath>
 
-Particle :: Particle(Vector* position, Vector* speed, Vector* force, double mass, double eletric)
+Particle::Particle(Vector* position, Vector* speed, Vector* force, long double mass, long double eletric)
 {
 	this -> position = position;
 	this -> speed = speed;
@@ -11,7 +11,7 @@ Particle :: Particle(Vector* position, Vector* speed, Vector* force, double mass
 	this -> eletric = eletric;
 }
 
-Particle :: Particle(Vector* position, Vector* speed, double mass, double eletric)
+Particle::Particle(Vector* position, Vector* speed, long double mass, long double eletric)
 {
 	this -> position = position;
 	this -> speed = speed;
@@ -20,7 +20,7 @@ Particle :: Particle(Vector* position, Vector* speed, double mass, double eletri
 	this -> eletric = eletric;
 }
 
-Particle :: Particle(Vector* position, double mass, double eletric)
+Particle::Particle(Vector* position, long double mass, long double eletric)
 {
 	this -> position = position;
 	this -> speed = new Vector();
@@ -29,7 +29,7 @@ Particle :: Particle(Vector* position, double mass, double eletric)
 	this -> eletric = eletric;
 }
 
-Particle :: Particle(double mass, double eletric)
+Particle::Particle(long double mass, long double eletric)
 {
 	this -> position = new Vector();
 	this -> speed = new Vector();
@@ -38,7 +38,7 @@ Particle :: Particle(double mass, double eletric)
 	this -> eletric = eletric;
 }
 
-Particle :: Particle(double mass)
+Particle::Particle(long double mass)
 {
 	this -> position = new Vector();
 	this -> speed = new Vector();
@@ -47,7 +47,7 @@ Particle :: Particle(double mass)
 	this -> eletric = 0;
 }
 
-Particle :: Particle(void)
+Particle::Particle(void)
 {
 	this -> position = new Vector();
 	this -> speed = new Vector();
@@ -56,16 +56,16 @@ Particle :: Particle(void)
 	this -> eletric = 0;
 }
 
-Particle :: ~Particle(void)
+Particle::~Particle(void)
 {
 	delete this -> position;
 	delete this -> speed;
 	delete this -> force;
 }
 
-double Particle::get_particles_distance (Particle* p1, Particle* p2)
+long double Particle::getParticlesDistance (Particle* p1, Particle* p2)
 {
-	return sqrt((p1.position -> x - p2.position -> x) * (p1.position -> x - p2.position -> x) +
+	return sqrtl((p1.position -> x - p2.position -> x) * (p1.position -> x - p2.position -> x) +
 	(p1.position -> y - p2.position -> y) * (p1.position -> y - p2.position -> y) +
 	(p1.position -> z - p2.position -> z) * (p1.position -> z - p2.position -> z));
 }

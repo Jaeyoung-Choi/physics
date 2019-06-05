@@ -3,14 +3,15 @@ class Vector
 private:
 
 public:
-	double x, y, z;
-	Vector(double x, double y, double z);
-	Vector(double x, double y);
-	Vector(double x);
+	long double x, y, z;
+	
+	Vector(long double x, long double y, long double z);
+	Vector(long double x, long double y);
+	Vector(long double x);
 	Vector(void);
-	double get_size(void);
+	long double getSize(void);
 	Vector* sum(Vector* v1, Vector* v2);
-	Vector* sub(Vector* v, double s);
+	Vector* sub(Vector* v, long double s);
 	Vector* mul(Vector* v1, Vector* v2);
-	double inner_product(Vector* v1, Vector* v2);
+	long double innerProduct(Vector* v1, Vector* v2);
 };

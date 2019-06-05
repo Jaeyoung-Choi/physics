@@ -1,19 +1,20 @@
 class Particle
 {
 private:
+public:
 	Vector* position;
 	Vector* speed;
 	Vector* force;
-	double mass;
-	double eletric;
-public:
-	Particle(Vector* position, Vector* speed, Vector* force, double mass, double eletric);
-	Particle(Vector* position, Vector* speed, double mass, double eletric);
-	Particle(Vector* position, double mass, double eletric);
-	Particle(double mass, double eletric);
-	Particle(double mass);
+	long double mass;
+	long double eletric;
+	
+	Particle(Vector* position, Vector* speed, Vector* force, long double mass, long double eletric);
+	Particle(Vector* position, Vector* speed, long double mass, long double eletric);
+	Particle(Vector* position, long double mass, long double eletric);
+	Particle(long double mass, long double eletric);
+	Particle(long double mass);
 	Particle(void);
 	~Particle(void);
-	double Particle::get_particles_distance(Particle* p1, Particle* p2);
-	Vector* Particle::get_a(void);
+	long double Particle::getParticlesDistance(Particle* p1, Particle* p2);
+	Vector* get_a(void);
 };

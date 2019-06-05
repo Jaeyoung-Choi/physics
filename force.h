@@ -1,0 +1,7 @@
+class Force
+{
+private:
+	
+public:
+	
+}
