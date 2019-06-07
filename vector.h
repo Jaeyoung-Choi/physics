@@ -10,8 +10,9 @@ public:
 	Vector(long double x);
 	Vector(void);
 	long double getSize(void);
-	Vector* sum(Vector* v1, Vector* v2);
-	Vector* sub(Vector* v, long double s);
-	Vector* mul(Vector* v1, Vector* v2);
-	long double innerProduct(Vector* v1, Vector* v2);
+	static Vector* sum(Vector* v1, Vector* v2);
+	static Vector* mul(Vector* v, long double s);
+	static Vector* mul(Vector* v1, Vector* v2);
+	static long double innerProduct(Vector* v1, Vector* v2);
+	Vector* getUnitVector (void);
 };
