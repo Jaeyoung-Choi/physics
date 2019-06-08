@@ -2,7 +2,7 @@
 #include "vector"
 #include <cmath>
 
-Particle::Particle(Vector* position, Vector* speed, Vector* force, long double mass, long double eletric)
+Particle::Particle(const Vector* const position, const Vector* const speed, const Vector* const force, const long double mass, const long double eletric)
 {
 	this -> position = position;
 	this -> speed = speed;
@@ -11,7 +11,7 @@ Particle::Particle(Vector* position, Vector* speed, Vector* force, long double m
 	this -> eletric = eletric;
 }
 
-Particle::Particle(Vector* position, Vector* speed, long double mass, long double eletric)
+Particle::Particle(const Vector* const position, const Vector* const speed, const long double mass, const long double eletric)
 {
 	this -> position = position;
 	this -> speed = speed;
@@ -20,7 +20,7 @@ Particle::Particle(Vector* position, Vector* speed, long double mass, long doubl
 	this -> eletric = eletric;
 }
 
-Particle::Particle(Vector* position, long double mass, long double eletric)
+Particle::Particle(const Vector* const position, const long double mass, const long double eletric)
 {
 	this -> position = position;
 	this -> speed = new Vector();
@@ -29,7 +29,7 @@ Particle::Particle(Vector* position, long double mass, long double eletric)
 	this -> eletric = eletric;
 }
 
-Particle::Particle(long double mass, long double eletric)
+Particle::Particle(const long double mass, const long double eletric)
 {
 	this -> position = new Vector();
 	this -> speed = new Vector();
@@ -38,7 +38,7 @@ Particle::Particle(long double mass, long double eletric)
 	this -> eletric = eletric;
 }
 
-Particle::Particle(long double mass)
+Particle::Particle(const long double mass)
 {
 	this -> position = new Vector();
 	this -> speed = new Vector();
@@ -63,15 +63,15 @@ Particle::~Particle(void)
 	delete this -> force;
 }
 
-long double Particle::getParticlesDistance(Particle* p1, Particle* p2)
+long double Particle::getParticlesDistance(const Particle* const p1, const Particle* const p2)
 {
 	return sqrtl((p1.position -> x - p2.position -> x) *(p1.position -> x - p2.position -> x) +
 	(p1.position -> y - p2.position -> y) *(p1.position -> y - p2.position -> y) +
 	(p1.position -> z - p2.position -> z) *(p1.position -> z - p2.position -> z));
 }
 
-Vector* Particle::get_a(void)
+Vector Particle::get_a(void)
 {
-	Vector* ret = new Vector(this.force.x / mass, this.force.y / mass, this.force.z / mass);
+	Vector ret = new Vector(this.force.x / mass, this.force.y / mass, this.force.z / mass);
 	return ret;
 }
