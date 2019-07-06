@@ -1,3 +1,6 @@
+#ifndef __VECTOR_H__
+#define __VECTOR_H__
+
 #include <cmath>
 
 class Vector
@@ -18,3 +21,5 @@ public:
 	static long double innerProduct(const Vector* const v1, const Vector* const v2);
 	Vector getUnitVector (void);
 };
+
+#endif

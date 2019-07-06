@@ -14,14 +14,16 @@ int main(void)
 	{
 		long double forceSize = Force::getGravitySize(&p1, &p2);
 		
-		p1.force = Vector::mul(&Vector::sub(&p2.position, &p1.position).getUnitVector(), forceSize);
-		p2.force = Vector::mul(&Vector::sub(&p1.position, &p2.position).getUnitVector(), forceSize);
+		Vector subVec = Vector::sub(&p2.position, &p1.position).getUnitVector();
+		p1.force = Vector::mul(&subVec, forceSize);
+		subVec = Vector::sub(&p1.position, &p2.position).getUnitVector();
+		p2.force = Vector::mul(&subVec, forceSize);
 
 		p1.update();
 		p2.update();
 
-		printf("p1 : %lf %lf %lf\n", p1.position.x, p1.position.y, p1.position.z);
-		printf("p2 : %lf %lf %lf\n", p2.position.x, p2.position.y, p2.position.z);
+		printf("p1 : %Lf %Lf %Lf\n", p1.position.x, p1.position.y, p1.position.z);
+		printf("p2 : %Lf %Lf %Lf\n", p2.position.x, p2.position.y, p2.position.z);
 		printf("\n");
 	} while(t < 100000000000);
 

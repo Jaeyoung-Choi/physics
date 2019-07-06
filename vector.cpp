@@ -35,20 +35,17 @@ long double Vector::getSize(void)
 
 Vector Vector::sum(const Vector* const v1, const Vector* const v2)
 {
-	Vector res = Vector(v1 -> x + v2 -> x, v1 -> y + v2 -> y, v1 -> z + v2 -> z);
-	return res;
+	return Vector(v1 -> x + v2 -> x, v1 -> y + v2 -> y, v1 -> z + v2 -> z);
 }
 
 Vector Vector::sub(const Vector* const v1, const Vector* const v2)
 {
-	Vector res = Vector(v1 -> x - v2 -> x, v1 -> y - v2 -> y, v1 -> z - v2 -> z);
-	return res;
+	return Vector(v1 -> x - v2 -> x, v1 -> y - v2 -> y, v1 -> z - v2 -> z);
 }
 
 Vector Vector::mul(const Vector* const v, const long double s)
 {
-	Vector res = Vector(v -> x * s, v -> y * s, v -> z * s);
-	return res;
+	return Vector(v -> x * s, v -> y * s, v -> z * s);
 }
 
 long double Vector::innerProduct(const Vector* const v1, const Vector* const v2)
@@ -59,6 +56,5 @@ long double Vector::innerProduct(const Vector* const v1, const Vector* const v2)
 Vector Vector::getUnitVector(void)
 {
 	long double vSize = this -> getSize();
-	Vector ret = Vector(this -> x / vSize, this -> y / vSize, this -> z / vSize);
-	return ret;
+	return Vector(this -> x / vSize, this -> y / vSize, this -> z / vSize);
 }

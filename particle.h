@@ -1,3 +1,6 @@
+#ifndef __PARTICLE_H__
+#define __PARTICLE_H__
+
 #include "vector.h"
 #include "constants.h"
 #include <cmath>
@@ -18,7 +21,9 @@ public:
 	Particle(const long double mass, const long double eletric);
 	Particle(const long double mass);
 	Particle(void);
-	static long double Particle::getParticlesDistance(const Particle* const p1, const Particle* const p2);
+	static long double getParticlesDistance(const Particle* const p1, const Particle* const p2);
 	Vector getA(void);
 	void update(void);
 };
+
+#endif

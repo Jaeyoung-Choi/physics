@@ -1,3 +1,6 @@
+#ifndef __FORCE_H__
+#define __FORCE_H__
+
 #include "vector.h"
 #include "particle.h"
 #include "constants.h"
@@ -11,3 +14,5 @@ public:
 	static long double getGravitySize(const Particle* const p1, const Particle* const p2);
 	static long double getEletricForceSize(const Particle* const p1, const Particle* const p2);
 };
+
+#endif
