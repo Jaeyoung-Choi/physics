@@ -54,11 +54,11 @@ Particle::Particle(void)
 	this -> eletric = 0;
 }
 
-long double Particle::getParticlesDistance(const Particle* const p1, const Particle* const p2)
+long double Particle::getParticlesDistance(const Particle& p1, const Particle& p2)
 {
-	return sqrtl(powl(p1 -> position.x - p2 -> position.x, 2) +
-	powl(p1 -> position.y - p2 -> position.y, 2) +
-	powl(p1 -> position.z - p2 -> position.z, 2));
+	return sqrtl(powl(p1.position.x - p2.position.x, 2) +
+	powl(p1.position.y - p2.position.y, 2) +
+	powl(p1.position.z - p2.position.z, 2));
 }
 
 Vector Particle::getA(void)
@@ -69,6 +69,6 @@ Vector Particle::getA(void)
 
 void Particle::update(void)
 {
-	this -> position = Vector::sum(&this -> position, &Vector::sum(&Vector::mul(&this -> speed, DT), &Vector::mul(&this -> getA(), 0.5 * powl(DT, 2))));
-	this -> speed = Vector::sum(&this -> speed, &Vector::mul(&this -> getA(), DT));
+	this -> position = Vector::sum(this -> position, Vector::sum(Vector::mul(this -> speed, DT), Vector::mul(this -> getA(), 0.5 * powl(DT, 2))));
+	this -> speed = Vector::sum(this -> speed, Vector::mul(this -> getA(), DT));
 }
