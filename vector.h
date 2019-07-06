@@ -1,3 +1,5 @@
+#include <cmath>
+
 class Vector
 {
 private:
@@ -11,8 +13,8 @@ public:
 	Vector(void);
 	long double getSize(void);
 	static Vector sum(const Vector* const v1, const Vector* const v2);
+	static Vector sub(const Vector* const v1, const Vector* const v2);
 	static Vector mul(const Vector* const v, const long double s);
-	static Vector mul(const Vector* const v1, const Vector* const v2);
 	static long double innerProduct(const Vector* const v1, const Vector* const v2);
 	Vector getUnitVector (void);
 };

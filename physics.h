@@ -1,10 +1,10 @@
 #ifndef __PHYSICS_H__
 #define __PHYSICS_H__
 
-#include "constant"
-#include "particle"
-#include "force"
-#include <vector>
+#include "constants.h"
+#include "particle.h"
+#include "force.h"
+#include "vector.h"
 
 #endif
 

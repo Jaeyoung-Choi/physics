@@ -1,36 +1,29 @@
 #include <cstdio>
-#include "physics"
+#include "physics.h"
 
 #define DT 0.00000000001
 
 int main(void)
 {
-	Particle* p1 = new Particle(new Vector(1), new Vector(0, 1), new Vector(), G, 0);
-	Particle* p2 = new Particle(new Vector(), new Vector(), new Vector(), 0, 0);
+	Particle p1 = Particle(Vector(1), Vector(0, 1), Vector(), 1, 0);
+	Particle p2 = Particle(Vector(), Vector(), Vector(), 1/G, 0);
 
 	long double t = 0;
-	Vector* v = new Vector()
+	Vector v = Vector();
 	do
 	{
-		long double forceSize = Particle.getForceSize(p1, p2);
-		Vector* subVec = Vector.sub(p2, p1);
-		Vector* unitVec = subVec -> getUnitVector();
-		Vector* mulVec = Vector.mul(unitVec, forceSize);
-		delete p1 -> force;
-		delete subVec;
-		delete unitVec;
-		p1 -> force = mulVec;
-
-		Vector* subVec = Vector.sub(p1, p2);
-		Vector* unitVec = subVec -> getUnitVector();
-		Vector* mulVec = Vector.mul(unitVec, forceSize);
-		delete p2 -> force;
-		delete subVec;
-		delete unitVec;
-		p2 -> force = mulVec;
-
+		long double forceSize = Force::getGravitySize(&p1, &p2);
 		
-	} while(t < 100000000000)
+		p1.force = Vector::mul(&Vector::sub(&p2.position, &p1.position).getUnitVector(), forceSize);
+		p2.force = Vector::mul(&Vector::sub(&p1.position, &p2.position).getUnitVector(), forceSize);
+
+		p1.update();
+		p2.update();
+
+		printf("p1 : %lf %lf %lf\n", p1.position.x, p1.position.y, p1.position.z);
+		printf("p2 : %lf %lf %lf\n", p2.position.x, p2.position.y, p2.position.z);
+		printf("\n");
+	} while(t < 100000000000);
 
 	return 0;
 }
