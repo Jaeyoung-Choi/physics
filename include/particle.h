@@ -10,13 +10,13 @@ class Particle
 private:
 public:
 	Vector position;
-	Vector speed;
+	Vector velocity;
 	Vector force;
 	long double mass;
 	long double eletric;
 	
-	Particle(const Vector position, const Vector speed, const Vector force, const long double mass, const long double eletric);
-	Particle(const Vector position, const Vector speed, const long double mass, const long double eletric);
+	Particle(const Vector position, const Vector velocity, const Vector force, const long double mass, const long double eletric);
+	Particle(const Vector position, const Vector velocity, const long double mass, const long double eletric);
 	Particle(const Vector position, const long double mass, const long double eletric);
 	Particle(const long double mass, const long double eletric);
 	Particle(const long double mass);

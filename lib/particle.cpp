@@ -1,18 +1,18 @@
 #include "../include/particle.h"
 
-Particle::Particle(const Vector position, const Vector speed, const Vector force, const long double mass, const long double eletric)
+Particle::Particle(const Vector position, const Vector velocity, const Vector force, const long double mass, const long double eletric)
 {
 	this -> position = position;
-	this -> speed = speed;
+	this -> velocity = velocity;
 	this -> force = force;
 	this -> mass = mass;
 	this -> eletric = eletric;
 }
 
-Particle::Particle(const Vector position, const Vector speed, const long double mass, const long double eletric)
+Particle::Particle(const Vector position, const Vector velocity, const long double mass, const long double eletric)
 {
 	this -> position = position;
-	this -> speed = speed;
+	this -> velocity = velocity;
 	this -> force = Vector();
 	this -> mass = mass;
 	this -> eletric = eletric;
@@ -21,7 +21,7 @@ Particle::Particle(const Vector position, const Vector speed, const long double 
 Particle::Particle(const Vector position, const long double mass, const long double eletric)
 {
 	this -> position = position;
-	this -> speed = Vector();
+	this -> velocity = Vector();
 	this -> force = Vector();
 	this -> mass = mass;
 	this -> eletric = eletric;
@@ -30,7 +30,7 @@ Particle::Particle(const Vector position, const long double mass, const long dou
 Particle::Particle(const long double mass, const long double eletric)
 {
 	this -> position = Vector();
-	this -> speed = Vector();
+	this -> velocity = Vector();
 	this -> force = Vector();
 	this -> mass = mass;
 	this -> eletric = eletric;
@@ -39,7 +39,7 @@ Particle::Particle(const long double mass, const long double eletric)
 Particle::Particle(const long double mass)
 {
 	this -> position = Vector();
-	this -> speed = Vector();
+	this -> velocity = Vector();
 	this -> force = Vector();
 	this -> mass = mass;
 	this -> eletric = 0;
@@ -48,7 +48,7 @@ Particle::Particle(const long double mass)
 Particle::Particle(void)
 {
 	this -> position = Vector();
-	this -> speed = Vector();
+	this -> velocity = Vector();
 	this -> force = Vector();
 	this -> mass = 0;
 	this -> eletric = 0;
@@ -56,9 +56,7 @@ Particle::Particle(void)
 
 long double Particle::getParticlesDistance(const Particle& p1, const Particle& p2)
 {
-	return sqrtl(powl(p1.position.x - p2.position.x, 2) +
-	powl(p1.position.y - p2.position.y, 2) +
-	powl(p1.position.z - p2.position.z, 2));
+	return (p1.position - p2.position).getSize();
 }
 
 Vector Particle::getA(void)
@@ -69,6 +67,6 @@ Vector Particle::getA(void)
 
 void Particle::update(void)
 {
-	this -> position = Vector::sum(this -> position, Vector::sum(Vector::mul(this -> speed, DT), Vector::mul(this -> getA(), 0.5 * powl(DT, 2))));
-	this -> speed = Vector::sum(this -> speed, Vector::mul(this -> getA(), DT));
+	this -> position = this -> position + this -> velocity * DT + 0.5 * this -> getA() * powl(DT, 2);
+	this -> velocity = this -> velocity + this -> getA() * DT;
 }

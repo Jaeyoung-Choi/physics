@@ -30,7 +30,23 @@ public:
 	static Vector mul(const Vector&& v, const long double s);
 
 	static long double innerProduct(const Vector& v1, const Vector& v2);
+
 	Vector getUnitVector(void);
 };
+
+Vector operator+(const Vector& v1, const Vector& v2);
+Vector operator+(const Vector& v1, const Vector&& v2);
+Vector operator+(const Vector&& v1, const Vector& v2);
+Vector operator+(const Vector&& v1, const Vector&& v2);
+
+Vector operator-(const Vector& v1, const Vector&& v2);
+Vector operator-(const Vector& v1, const Vector& v2);
+Vector operator-(const Vector&& v1, const Vector& v2);
+Vector operator-(const Vector&& v1, const Vector&& v2);
+
+Vector operator*(const Vector& v, const long double s);
+Vector operator*(const Vector&& v, const long double s);
+long double operator*(const Vector& v1, const Vector& v2);
+
 
 #endif
