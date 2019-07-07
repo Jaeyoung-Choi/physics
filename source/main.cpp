@@ -1,5 +1,5 @@
 #include <cstdio>
-#include "physics.h"
+#include "../include/physics.h"
 
 #define DT 0.00000000001
 

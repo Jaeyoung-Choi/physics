@@ -1,4 +1,4 @@
-#include "vector.h"
+#include "../include/vector.h"
 
 Vector::Vector(const long double x, const long double y, const long double z)
 {
@@ -33,57 +33,57 @@ long double Vector::getSize(void)
 	return sqrtl(this -> x * this-> x + this-> y * this-> y + this-> z * this-> z);
 }
 
-static Vector sum(const Vector& v1, const Vector& v2)
+Vector Vector::sum(const Vector& v1, const Vector& v2)
 {
 	return Vector(v1.x + v2.x, v1.y + v2.y, v1.z + v2.z);
 }
 
-static Vector sum(const Vector& v1, const Vector&& v2)
+Vector Vector::sum(const Vector& v1, const Vector&& v2)
 {
 	return Vector(v1.x + v2.x, v1.y + v2.y, v1.z + v2.z);
 }
 
-static Vector sum(const Vector&& v1, const Vector& v2)
+Vector Vector::sum(const Vector&& v1, const Vector& v2)
 {
 	return Vector(v1.x + v2.x, v1.y + v2.y, v1.z + v2.z);
 }
 
-static Vector sum(const Vector&& v1, const Vector&& v2)
+Vector Vector::sum(const Vector&& v1, const Vector&& v2)
 {
 	return Vector(v1.x + v2.x, v1.y + v2.y, v1.z + v2.z);
 }
 
-static Vector sub(const Vector& v1, const Vector& v2)
+Vector Vector::sub(const Vector& v1, const Vector& v2)
 {
 	return Vector(v1.x - v2.x, v1.y - v2.y, v1.z - v2.z);
 }
 
-static Vector sub(const Vector& v1, const Vector&& v2)
+Vector Vector::sub(const Vector& v1, const Vector&& v2)
 {
 	return Vector(v1.x - v2.x, v1.y - v2.y, v1.z - v2.z);
 }
 
-static Vector sub(const Vector&& v1, const Vector& v2)
+Vector Vector::sub(const Vector&& v1, const Vector& v2)
 {
 	return Vector(v1.x - v2.x, v1.y - v2.y, v1.z - v2.z);
 }
 
-static Vector sub(const Vector&& v1, const Vector&& v2)
+Vector Vector::sub(const Vector&& v1, const Vector&& v2)
 {
 	return Vector(v1.x - v2.x, v1.y - v2.y, v1.z - v2.z);
 }
 
-static Vector mul(const Vector& v, const long double s)
+Vector Vector::mul(const Vector& v, const long double s)
 {
 	return Vector(v.x * s, v.y * s, v.z * s);
 }
 
-static Vector mul(const Vector&& v, const long double s)
+Vector Vector::mul(const Vector&& v, const long double s)
 {
 	return Vector(v.x * s, v.y * s, v.z * s);
 }
 
-static long double innerProduct(const Vector& v1, const Vector& v2)
+long double Vector::innerProduct(const Vector& v1, const Vector& v2)
 {
     return v1.x * v2.x + v1.y * v2.y + v1. z * v2.z;
 }

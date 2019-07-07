@@ -1,4 +1,4 @@
-#include "particle.h"
+#include "../include/particle.h"
 
 Particle::Particle(const Vector position, const Vector speed, const Vector force, const long double mass, const long double eletric)
 {

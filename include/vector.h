@@ -30,7 +30,7 @@ public:
 	static Vector mul(const Vector&& v, const long double s);
 
 	static long double innerProduct(const Vector& v1, const Vector& v2);
-	Vector getUnitVector (void);
+	Vector getUnitVector(void);
 };
 
 #endif

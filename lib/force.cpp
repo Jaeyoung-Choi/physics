@@ -1,4 +1,4 @@
-#include "force.h"
+#include "../include/force.h"
 
 long double Force::getGravitySize(const Particle& p1, const Particle& p2)
 {
