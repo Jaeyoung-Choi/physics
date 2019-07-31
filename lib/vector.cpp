@@ -30,7 +30,7 @@ Vector::Vector(void)
 
 long double Vector::getSize(void)
 {
-	return sqrtl(powl(this -> x, 2) + powl(this-> y, 2) + powl(this-> z, 2));
+	return sqrtl(powl(this -> x, 2) + powl(this -> y, 2) + powl(this -> z, 2));
 }
 
 Vector Vector::sum(const Vector& v1, const Vector& v2)
@@ -128,7 +128,27 @@ Vector operator*(const Vector&& v, const long double s)
 {
 	return Vector(v.x * s, v.y * s, v.z * s);
 }
+Vector operator*(const long double s, const Vector& v)
+{
+	return Vector(v.x * s, v.y * s, v.z * s);
+}
+Vector operator*(const long double s, const Vector&& v)
+{
+	return Vector(v.x * s, v.y * s, v.z * s);
+}
 long double operator*(const Vector& v1, const Vector& v2)
+{
+    return v1.x * v2.x + v1.y * v2.y + v1. z * v2.z;
+}
+long double operator*(const Vector& v1, const Vector&& v2)
+{
+    return v1.x * v2.x + v1.y * v2.y + v1. z * v2.z;
+}
+long double operator*(const Vector&& v1, const Vector& v2)
+{
+    return v1.x * v2.x + v1.y * v2.y + v1. z * v2.z;
+}
+long double operator*(const Vector&& v1, const Vector&& v2)
 {
     return v1.x * v2.x + v1.y * v2.y + v1. z * v2.z;
 }

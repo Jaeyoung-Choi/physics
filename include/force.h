@@ -12,7 +12,14 @@ private:
 	
 public:
 	static long double getGravitySize(const Particle& p1, const Particle& p2);
+	static long double getGravitySize(const Particle& p1, const Particle&& p2);
+	static long double getGravitySize(const Particle&& p1, const Particle& p2);
+	static long double getGravitySize(const Particle&& p1, const Particle&& p2);
+	
 	static long double getEletricForceSize(const Particle& p1, const Particle& p2);
+	static long double getEletricForceSize(const Particle& p1, const Particle&& p2);
+	static long double getEletricForceSize(const Particle&& p1, const Particle& p2);
+	static long double getEletricForceSize(const Particle&& p1, const Particle&& p2);
 };
 
 #endif

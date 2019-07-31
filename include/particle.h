@@ -1,9 +1,12 @@
 #ifndef __PARTICLE_H__
 #define __PARTICLE_H__
 
+#define INCREASE_DEGREE 10
+
 #include "vector.h"
 #include "constants.h"
 #include <cmath>
+#include <cstring>
 
 class Particle
 {
@@ -12,6 +15,11 @@ public:
 	Vector position;
 	Vector velocity;
 	Vector force;
+
+	static unsigned long long int n;
+	static unsigned long long int cnt;
+	static Particle** particles;
+
 	long double mass;
 	long double eletric;
 	
@@ -21,7 +29,8 @@ public:
 	Particle(const long double mass, const long double eletric);
 	Particle(const long double mass);
 	Particle(void);
-	static long double getParticlesDistance(const Particle& p1, const Particle& p2);
+	static void init(Particle* p);
+	static long double getDistance(const Particle& p1, const Particle& p2);
 	Vector getA(void);
 	void update(void);
 };
