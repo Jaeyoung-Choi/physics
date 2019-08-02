@@ -7,7 +7,7 @@ Particle::Particle(const Vector position, const Vector velocity, const Vector fo
 	this -> force = force;
 	this -> mass = mass;
 	this -> eletric = eletric;
-	Particle::init(this);
+	Particle::particles.push_back(this);
 }
 
 Particle::Particle(const Vector position, const Vector velocity, const long double mass, const long double eletric)
@@ -17,7 +17,7 @@ Particle::Particle(const Vector position, const Vector velocity, const long doub
 	this -> force = Vector();
 	this -> mass = mass;
 	this -> eletric = eletric;
-	Particle::init(this);
+	Particle::particles.push_back(this);
 }
 
 Particle::Particle(const Vector position, const long double mass, const long double eletric)
@@ -27,7 +27,7 @@ Particle::Particle(const Vector position, const long double mass, const long dou
 	this -> force = Vector();
 	this -> mass = mass;
 	this -> eletric = eletric;
-	Particle::init(this);
+	Particle::particles.push_back(this);
 }
 
 Particle::Particle(const long double mass, const long double eletric)
@@ -37,7 +37,7 @@ Particle::Particle(const long double mass, const long double eletric)
 	this -> force = Vector();
 	this -> mass = mass;
 	this -> eletric = eletric;
-	Particle::init(this);
+	Particle::particles.push_back(this);
 }
 
 Particle::Particle(const long double mass)
@@ -47,7 +47,7 @@ Particle::Particle(const long double mass)
 	this -> force = Vector();
 	this -> mass = mass;
 	this -> eletric = 0;
-	Particle::init(this);
+	Particle::particles.push_back(this);
 }
 
 Particle::Particle(void)
@@ -57,26 +57,25 @@ Particle::Particle(void)
 	this -> force = Vector();
 	this -> mass = 0;
 	this -> eletric = 0;
-	Particle::init(this);
-}
-
-unsigned long long int Particle::n = 0;
-unsigned long long int Particle::cnt = 0;
-Particle** Particle::particles = NULL;
-void Particle::init(Particle* p)
-{
-	if (Particle::n == Particle::cnt)
-	{
-		Particle** tmp = Particle::particles;
-		Particle::particles = new Particle*[Particle::n + INCREASE_DEGREE];
-		memcpy(Particle::particles, tmp, Particle::n * sizeof(Particle*));
-		Particle::n += INCREASE_DEGREE;
-		delete tmp;
-	}
-	Particle::particles[Particle::cnt++] = p;
+	Particle::particles.push_back(this);
 }
 
 long double Particle::getDistance(const Particle& p1, const Particle& p2)
+{
+	return (p1.position - p2.position).getSize();
+}
+
+long double Particle::getDistance(const Particle& p1, const Particle&& p2)
+{
+	return (p1.position - p2.position).getSize();
+}
+
+long double Particle::getDistance(const Particle&& p1, const Particle& p2)
+{
+	return (p1.position - p2.position).getSize();
+}
+
+long double Particle::getDistance(const Particle&& p1, const Particle&& p2)
 {
 	return (p1.position - p2.position).getSize();
 }

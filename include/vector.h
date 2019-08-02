@@ -46,7 +46,11 @@ Vector operator-(const Vector&& v1, const Vector&& v2);
 
 Vector operator*(const Vector& v, const long double s);
 Vector operator*(const Vector&& v, const long double s);
+Vector operator*(const long double s, const Vector& v);
+Vector operator*(const long double s, const Vector&& v);
 long double operator*(const Vector& v1, const Vector& v2);
-
+long double operator*(const Vector& v1, const Vector&& v2);
+long double operator*(const Vector&& v1, const Vector& v2);
+long double operator*(const Vector&& v1, const Vector&& v2);
 
 #endif
