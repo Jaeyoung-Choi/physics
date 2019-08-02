@@ -28,8 +28,13 @@ public:
 
 	static Vector mul(const Vector& v, const long double s);
 	static Vector mul(const Vector&& v, const long double s);
+	static Vector mul(const long double s, const Vector& v);
+	static Vector mul(const long double s, const Vector&& v);
 
 	static long double innerProduct(const Vector& v1, const Vector& v2);
+	static long double innerProduct(const Vector& v1, const Vector&& v2);
+	static long double innerProduct(const Vector&& v1, const Vector& v2);
+	static long double innerProduct(const Vector&& v1, const Vector&& v2);
 
 	Vector getUnitVector(void);
 };

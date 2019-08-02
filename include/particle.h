@@ -5,7 +5,6 @@
 #include "constants.h"
 #include <cmath>
 #include <cstring>
-#include <vector>
 
 class Particle
 {
@@ -15,7 +14,9 @@ public:
 	Vector velocity;
 	Vector force;
 
-	static std::vector<Particle*> particles;
+	static unsigned long long int n;
+	static unsigned long long int cnt;
+	static Particle** particles;
 
 	long double mass;
 	long double eletric;

@@ -75,7 +75,28 @@ Vector Vector::mul(const Vector&& v, const long double s)
 {
 	return Vector(v.x * s, v.y * s, v.z * s);
 }
+Vector Vector::mul(const long double s, const Vector& v)
+{
+	return Vector(v.x * s, v.y * s, v.z * s);
+}
+Vector Vector::mul(const long double s, const Vector&& v)
+{
+	return Vector(v.x * s, v.y * s, v.z * s);
+}
+
 long double Vector::innerProduct(const Vector& v1, const Vector& v2)
+{
+    return v1.x * v2.x + v1.y * v2.y + v1. z * v2.z;
+}
+long double Vector::innerProduct(const Vector& v1, const Vector&& v2)
+{
+    return v1.x * v2.x + v1.y * v2.y + v1. z * v2.z;
+}
+long double Vector::innerProduct(const Vector&& v1, const Vector& v2)
+{
+    return v1.x * v2.x + v1.y * v2.y + v1. z * v2.z;
+}
+long double Vector::innerProduct(const Vector&& v1, const Vector&& v2)
 {
     return v1.x * v2.x + v1.y * v2.y + v1. z * v2.z;
 }
