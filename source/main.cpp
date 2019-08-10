@@ -3,8 +3,8 @@
 
 int main(void)
 {
-	Particle p1 = Particle(Vector(0, 1), Vector(0.707106781, 0, 0.707106781), 1, 0), p2 = Particle(1/G);
-	
+	Particle p1 = Particle(Vector(0, 1), Vector(0.707106781, 0, 0.707106781), 1), p2 = Particle(1/G); 
+
 	for (int i = 0; i < 100; i++)
 	{
 		Physics::analize(0.1);

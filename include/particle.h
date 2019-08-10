@@ -21,12 +21,16 @@ public:
 	long double mass;
 	long double eletric;
 	
-	Particle(const Vector position, const Vector velocity, const Vector force, const long double mass, const long double eletric);
-	Particle(const Vector position, const Vector velocity, const long double mass, const long double eletric);
-	Particle(const Vector position, const long double mass, const long double eletric);
-	Particle(const long double mass, const long double eletric);
-	Particle(const long double mass);
 	Particle(void);
+
+	Particle(const long double mass);
+	Particle(const Vector position, const long double mass);
+	Particle(const Vector position, const Vector velocity, const long double mass);
+
+	Particle(const long double mass, const long double eletric);
+	Particle(const Vector position, const long double mass, const long double eletric);
+	Particle(const Vector position, const Vector velocity, const long double mass, const long double eletric);
+
 	static void init(Particle* p);
 	static long double getDistance(const Particle& p1, const Particle& p2);
 	static long double getDistance(const Particle& p1, const Particle&& p2);

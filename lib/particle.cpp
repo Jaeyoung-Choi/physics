@@ -1,19 +1,49 @@
 #include "../include/particle.h"
 
-Particle::Particle(const Vector position, const Vector velocity, const Vector force, const long double mass, const long double eletric)
+Particle::Particle(void)
 {
-	this -> position = position;
-	this -> velocity = velocity;
-	this -> force = force;
-	this -> mass = mass;
-	this -> eletric = eletric;
+	this -> position = Vector();
+	this -> velocity = Vector();
+	this -> force = Vector();
+	this -> mass = 0;
+	this -> eletric = 0;
 	Particle::init(this);
 }
 
-Particle::Particle(const Vector position, const Vector velocity, const long double mass, const long double eletric)
+Particle::Particle(const long double mass)
+{
+	this -> position = Vector();
+	this -> velocity = Vector();
+	this -> force = Vector();
+	this -> mass = mass;
+	this -> eletric = 0;
+	Particle::init(this);
+}
+
+Particle::Particle(const Vector position, const long double mass)
+{
+	this -> position = position;
+	this -> velocity = Vector();
+	this -> force = Vector();
+	this -> mass = mass;
+	this -> eletric = 0;
+	Particle::init(this);
+}
+
+Particle::Particle(const Vector position, const Vector velocity, const long double mass)
 {
 	this -> position = position;
 	this -> velocity = velocity;
+	this -> force = Vector();
+	this -> mass = mass;
+	this -> eletric = 0;
+	Particle::init(this);
+}
+
+Particle::Particle(const long double mass, const long double eletric)
+{
+	this -> position = Vector();
+	this -> velocity = Vector();
 	this -> force = Vector();
 	this -> mass = mass;
 	this -> eletric = eletric;
@@ -30,33 +60,13 @@ Particle::Particle(const Vector position, const long double mass, const long dou
 	Particle::init(this);
 }
 
-Particle::Particle(const long double mass, const long double eletric)
+Particle::Particle(const Vector position, const Vector velocity, const long double mass, const long double eletric)
 {
-	this -> position = Vector();
-	this -> velocity = Vector();
+	this -> position = position;
+	this -> velocity = velocity;
 	this -> force = Vector();
 	this -> mass = mass;
 	this -> eletric = eletric;
-	Particle::init(this);
-}
-
-Particle::Particle(const long double mass)
-{
-	this -> position = Vector();
-	this -> velocity = Vector();
-	this -> force = Vector();
-	this -> mass = mass;
-	this -> eletric = 0;
-	Particle::init(this);
-}
-
-Particle::Particle(void)
-{
-	this -> position = Vector();
-	this -> velocity = Vector();
-	this -> force = Vector();
-	this -> mass = 0;
-	this -> eletric = 0;
 	Particle::init(this);
 }
 
