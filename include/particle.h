@@ -13,10 +13,7 @@ public:
 	Vector position;
 	Vector velocity;
 	Vector force;
-
-	static unsigned long long int n;
-	static unsigned long long int cnt;
-	static Particle** particles;
+	Vector potentialForce;
 
 	long double mass;
 	long double eletric;
@@ -26,10 +23,12 @@ public:
 	Particle(const long double mass);
 	Particle(const Vector position, const long double mass);
 	Particle(const Vector position, const Vector velocity, const long double mass);
+	Particle(const Vector position, const Vector velocity, const Vector potentialForce, const long double mass);
 
 	Particle(const long double mass, const long double eletric);
 	Particle(const Vector position, const long double mass, const long double eletric);
 	Particle(const Vector position, const Vector velocity, const long double mass, const long double eletric);
+	Particle(const Vector position, const Vector velocity, const Vector potentialForce, const long double mass, const long double eletric);
 
 	static void init(Particle* p);
 	static long double getDistance(const Particle& p1, const Particle& p2);
@@ -38,6 +37,10 @@ public:
 	static long double getDistance(const Particle&& p1, const Particle&& p2);
 	Vector getA(void);
 	void update(void);
+
+	static unsigned long long int n;
+	static unsigned long long int cnt;
+	static Particle** particles;
 };
 
 #endif
